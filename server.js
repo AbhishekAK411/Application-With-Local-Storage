@@ -16,9 +16,11 @@ function Register(event){
     if(name && email && password && confirmPassword){
         if(password.length >= 8 && confirmPassword.length >= 8){
             if(password==confirmPassword){
-            var userData = {userName: name, userEmail:email, password: password, confirmPasssword: confirmPassword};
-            console.log(userData);
-            localStorage.setItem("users", JSON.stringify(userData));
+                var userData = {userName: name, userEmail:email, password: password, confirmPasssword: confirmPassword};
+            // console.log(userData);
+                localStorage.setItem("userx", JSON.stringify(userData));
+                // console.log(userData);
+                // console.log(JSON.stringify(userData));
             } else {
                 console.log("Password do not Match");
             }
@@ -30,5 +32,15 @@ function Register(event){
     }
 
 }
+
+function getData(){
+    console.log(JSON.parse(localStorage.getItem("userx")));
+}
+
+
+
+
+
+
 
 
