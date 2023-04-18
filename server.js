@@ -1,4 +1,4 @@
-const arrayData = [];
+// const arrayData = [];
 
 function Register(event){
     event.preventDefault();
@@ -66,7 +66,7 @@ function Validate(event){
     var password = document.getElementById("password").value;
     
 
-    var LS = JSON.parse(localStorage.getItem("users")) || [];
+    var LS = JSON.parse(localStorage.getItem("users"));
     var flag=false;
     for(var i=0;i<LS.length;i++){
         if(LS[i].userEmail == email && LS[i].userPassword == password){
@@ -81,6 +81,11 @@ function Validate(event){
     }
 
     
+}
+
+
+        console.log("Both Fields are Mandatory");
+    }
 }
 
 
