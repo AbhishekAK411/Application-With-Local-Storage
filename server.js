@@ -101,7 +101,6 @@ function ValidateExample(event){
         }
 
         
-
         if(flagForLogin){
             alert("Login Successful");
             var currentUser ={};
