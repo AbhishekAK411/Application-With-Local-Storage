@@ -84,6 +84,40 @@ function Validate(event){
 }
 
 
+function ValidateExample(event){
+    event.preventDefault();
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    if(email && password){
+        var loginData = JSON.parse(localStorage.getItem("users"));
+        var flagForLogin = false;
+
+        for(i=0;i<loginData.length;i++){
+            if(loginData[i].userEmail == email && loginData[i].userPassword == password){
+                flagForLogin=true;
+            }
+        }
+
+        
+
+        if(flagForLogin){
+            alert("Login Successful");
+            var currentUser ={};
+
+            for(i=0; i<loginData.length;i++){
+                if(loginData[i].userEmail==email && loginData[i].userPassword == password){
+                    currentUser = loginData[i];
+                }
+            }
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        }
+        else{
+            alert("Wrong Credentials");
+        }
+    } 
+    else{
         console.log("Both Fields are Mandatory");
     }
 }
