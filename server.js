@@ -89,6 +89,7 @@ function ValidateExample(event){
 
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
+    var currentUser ={};
 
     if(email && password){
         var loginData = JSON.parse(localStorage.getItem("users"));
@@ -97,20 +98,14 @@ function ValidateExample(event){
         for(i=0;i<loginData.length;i++){
             if(loginData[i].userEmail == email && loginData[i].userPassword == password){
                 flagForLogin=true;
+                currentUser = loginData[i];
             }
         }
-
         
         if(flagForLogin){
             alert("Login Successful");
-            var currentUser ={};
-
-            for(i=0; i<loginData.length;i++){
-                if(loginData[i].userEmail==email && loginData[i].userPassword == password){
-                    currentUser = loginData[i];
-                }
-            }
             localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            window.location.href = "./redirect.html";
         }
         else{
             alert("Wrong Credentials");
