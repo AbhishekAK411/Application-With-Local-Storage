@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirection</title>
+    <title>Home</title>
 </head>
 <body>
-    <h1>Redirected</h1>
+    Home
+    <div id="switch">
+        <button onclick="window.location.href= `./login.html`">Login</button>
+        <button onclick="window.location.href= `./register.html`">Register</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            // console.log(currentUser);
+
+            if(!!currentUser){
+                var divFromHtml = document.getElementById("switch");
+                console.log(divFromHtml);
+
+                // var h1 = document.createElement("h1"); //creates a new element. Element can be a div, h1 or any html tag.
+                // h1.innerText = "Abhishek";  // innerText adds text to the variable h1 which is basically an h1 tag defined while creating the element.
+                // divFromHtml.append(h1); // appending or adding the value to the div that is fetched from html.
+
+                var name = `<h1>${currentUser.userName}</h1>`;
+                divFromHtml.innerHTML = name; // innerHTML replaces the entire div and adds h1 instead of that div.
+
+
+
+            } else {
+                alert("current user is absent");
+            }
+        }
+    </script>
 </body>
 </html>
